@@ -15,12 +15,7 @@ export const executeInstruction = (instruction, stacks, inOrder = false) => {
   const from = stacks[instruction.from];
   const to = stacks[instruction.to];
   if (inOrder) { // part 2
-    const crates = [];
-    for (let i = 0; i < instruction.move; i++) {
-      crates.push(from.pop());
-    }
-    crates.reverse();
-    stacks[instruction.to] = to.concat(crates);
+    stacks[instruction.to] = to.concat(from.splice(from.length - instruction.move));
   } else { // part 1
     for (let i = 0; i < instruction.move; i++) {
       to.push(from.pop());
