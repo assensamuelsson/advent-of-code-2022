@@ -42,7 +42,7 @@ const getNTailPositions = (commands, nknots) => {
       for (let i = 1; i < knots.length; i++) {
         moveTail(knots[i], knots[i - 1]);
       }
-      tailPositions.add(`x: ${knots[knots.length - 1].x}, y: ${knots[knots.length - 1].y}`);
+      tailPositions.add(`${knots[knots.length - 1].x} ${knots[knots.length - 1].y}`);
     })
   });
 
