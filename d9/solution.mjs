@@ -31,7 +31,7 @@ export const moveTail = (tail, head) => {
   tail.y += clamp(head.y - tail.y);
 };
 
-const getNTailPositions = (commands, nknots) => {
+const getNUniqueTailPositions = (commands, nknots) => {
   const knots = [];
   for (let i = 0; i < nknots; i++) knots.push({x: 0, y: 0});
   const tailPositions = new Set();
@@ -53,6 +53,6 @@ if (process.argv[2]) {
   const text = fs.readFileSync(process.argv[2], 'utf-8');
   const commands = text.split('\n');
   
-  console.log('Part 1', getNTailPositions(commands, 2));
-  console.log('Part 2', getNTailPositions(commands, 10));
+  console.log('Part 1', getNUniqueTailPositions(commands, 2));
+  console.log('Part 2', getNUniqueTailPositions(commands, 10));
 }
